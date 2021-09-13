@@ -2,7 +2,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css");
 
 body {
-  background-color: #f9f9fa;
+  background-color: #000000;
 }
 
 .flex {
@@ -45,10 +45,51 @@ body {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgb(53, 53, 53);
   background-clip: border-box;
-  border: 1px solid #d2d2dc;
-  border-radius: 0;
+  border: 1px solid rgb(83, 83, 83);
+  border-radius: 20px;
+}
+.card::before,
+.card::after {
+  content: "";
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    45deg,
+    #00ffff,
+    #f000a0,
+    #ffff00,
+    #0df00f,
+    #ff00ff,
+    #fa1212,
+    #0f0582,
+    #ffff56,
+    #0ff00f
+  );
+  width: 100%;
+  height: 100%;
+  /* transform: scale(1.02); */
+  z-index: -1;
+  background-size: 400%;
+  animation: animation 30s linear infinite;
+}
+.card::after {
+  filter: blur(30px);
+}
+@keyframes animation {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .pr-3,
@@ -66,13 +107,15 @@ body {
 }
 
 .card .card-title {
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 0.625rem;
   text-transform: capitalize;
   font-size: 0.875rem;
   font-weight: 500;
 }
-
+h2 {
+  font-size: 20px !important;
+}
 .add-items {
   margin-bottom: 1.5rem;
   overflow: hidden;
@@ -90,8 +133,8 @@ body {
 }
 
 .form-control {
-  border: 1px solid #f3f3f3;
-  font-weight: 400;
+  border: 1px solid #757575;
+  font-weight: 500;
   font-size: 0.875rem;
 }
 
@@ -99,10 +142,10 @@ body {
   display: block;
   width: 100%;
   padding: 0.875rem 1.375rem;
-  font-size: 1rem;
+  font-size: 25px !important;
   line-height: 1;
-  color: #495057;
-  background-color: #ffffff;
+  color: #000000 !important;
+  background-color: #ffffff !important;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 2px;
@@ -114,7 +157,7 @@ body {
 }
 
 .btn {
-  font-size: 0.875rem;
+  font-size: 1.3em;
   line-height: 1;
   font-weight: 400;
   padding: 0.7rem 1.5rem;
@@ -176,9 +219,10 @@ body {
 }
 
 .list-wrapper ul li {
-  font-size: 0.9375rem;
+  font-size: 30px;
   padding: 0.4rem 0;
   border-bottom: 1px solid #f3f3f3;
+  color: #fff;
 }
 
 .list-wrapper ul li:first-child {
@@ -211,7 +255,7 @@ body {
 
 .list-wrapper .completed {
   text-decoration: line-through;
-  text-decoration-color: #3da5f4;
+  text-decoration-color: #33ff00;
 }
 
 .list-wrapper ul li .form-check {
@@ -321,19 +365,16 @@ input[type="checkbox"] {
 
 .form-check .form-check-label input[type="checkbox"] + .input-helper:before {
   content: "";
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   border-radius: 2px;
-  border: solid #405189;
+  border: 1px solid #ffffff;
   border-width: 2px;
   -webkit-transition: all;
   -moz-transition: all;
   -ms-transition: all;
   -o-transition: all;
   transition: all;
-  transition-duration: 0s;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
 }
 
 .form-check .form-check-label input[type="checkbox"] + .input-helper:before,
@@ -349,9 +390,6 @@ input[type="checkbox"] {
   -ms-transition: all;
   -o-transition: all;
   transition: all;
-  transition-duration: 0s;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
   font-family: Material Design Icons;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -359,7 +397,7 @@ input[type="checkbox"] {
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
-  content: "\F12C";
+  content: "";
   font-size: 0.9375rem;
   font-weight: bold;
   color: #ffffff;
@@ -368,7 +406,7 @@ input[type="checkbox"] {
 .form-check .form-check-label input[type="checkbox"] + .input-helper:before,
 .form-check .form-check-label input[type="checkbox"] + .input-helper:after {
   position: absolute;
-  top: 0;
+  top: 30%;
   left: 0;
 }
 
@@ -376,7 +414,7 @@ input[type="checkbox"] {
   .form-check-label
   input[type="checkbox"]:checked
   + .input-helper:before {
-  background: #405189;
+  background: #26ff00;
   border-width: 0;
 }
 
@@ -385,16 +423,13 @@ input[type="checkbox"] {
   width: 18px;
   height: 18px;
   border-radius: 2px;
-  border: solid #405189;
+  border: solid #ffffff;
   border-width: 2px;
   -webkit-transition: all;
   -moz-transition: all;
   -ms-transition: all;
   -o-transition: all;
   transition: all;
-  transition-duration: 0s;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
 }
 
 .form-check .form-check-label input[type="checkbox"] + .input-helper:after {
@@ -408,16 +443,16 @@ input[type="checkbox"] {
 
 .text-primary,
 .list-wrapper .completed .remove {
-  color: #405189 !important;
+  color: #ffffff !important;
 }
 
 .list-wrapper .remove {
   cursor: pointer;
   font-size: 1.438rem;
-  font-weight: 600;
+  font-weight: 500;
   width: 1.25rem;
   height: 1.25rem;
-  line-height: 20px;
+  line-height: 40px;
   text-align: center;
 }
 
@@ -427,24 +462,24 @@ input[type="checkbox"] {
   margin-left: auto !important;
 }
 
-.mdi-close-circle-outline:before {
+/* .mdi-close-circle-outline:before {
   content: "\F15A";
-}
+} */
 
 .list-wrapper ul li {
   font-size: 0.9375rem;
   padding: 0.4rem 0;
-  border-bottom: 1px solid #f3f3f3;
+  border-bottom: 1px solid #818181;
 }
 
 .mdi:before {
   font-family: FontAwesome;
-  content: "\f00d";
+  content: "\2716";
   display: inline-block;
   padding-right: 3px;
-  vertical-align: middle;
-  font-size: 0.756em;
-  color: #405189;
+  /* vertical-align: middle; */
+  font-size: 1.1em;
+  color: #fd4545;
 }
 
 .list-wrapper ul {
@@ -479,4 +514,7 @@ input[type="checkbox"] {
   .navbar-dropdown
   .dropdown-item {
   display: flex !important;
+}
+.li {
+  font-size: 25px !important;
 }

@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
 
-let i = 1;
+let i = 2;
 function App() {
   const [todos, setTodos] = useState([
     {
       title: "Berim Kan",
       status: false,
       id: "0",
+    },
+    {
+      title: "Be kaftara ab o doon bedam",
+      status: false,
+      id: "1",
     },
   ]);
 
@@ -26,8 +31,6 @@ function App() {
         value.status = !value.status;
       }
     });
-
-    console.log(newTodos);
     setTodos(newTodos);
   };
 
@@ -40,10 +43,10 @@ function App() {
     <div className="page-content page-container" id="page-content">
       <div className="padding">
         <div className="row container d-flex justify-content-center">
-          <div className="col-md-12">
+          <div className="col-md-10">
             <div className="card px-3">
               <div className="card-body">
-                <h4 className="card-title">Awesome Todo list</h4>
+                <h2 className="card-title">Awesome Todo list</h2>
                 <AddTodo addLi={addLi} />
                 <div className="list-wrapper">
                   <ul className="d-flex flex-column-reverse todo-list">
@@ -51,7 +54,7 @@ function App() {
                       <TodoList
                         todo={todo}
                         index={index}
-                        id={todo}
+                        key={index}
                         removeTodo={removeTodo}
                         markTodo={markTodo}
                       />

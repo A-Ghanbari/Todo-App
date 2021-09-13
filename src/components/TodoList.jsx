@@ -8,22 +8,23 @@ export default function TodoList({ id, todo, index, removeTodo, markTodo }) {
   //   setChecked(!checked);
   // };
   return (
-    <li id={id.id} className={todo.status ? "completed" : ""}>
+    <li id={todo.id} className={todo.status ? "completed li" : "li"}>
       <div className="form-check">
-        <label className="form-check-label">
+        <label className="form-check-label li">
           <input
             className="checkbox"
             type="checkbox"
-            onClick={() => markTodo(id.id)}
+            onClick={() => markTodo(todo.id)}
 
             // onChecked={todo.status ? true : false}
           />
+          {todo.title}
           <i className="input-helper"></i>
         </label>
       </div>
-      {todo.title}
+
       <i
-        className="remove mdi mdi-close-circle-outline"
+        className=" remove mdi mdi-close-circle-outline"
         onClick={() => removeTodo(index)}
       ></i>
     </li>

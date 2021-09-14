@@ -8,7 +8,6 @@ export default function DarkLight() {
         document.body.classList.toggle("dark-mode");
       }}
     >
-      {/* <i className="mode " /> */}
       <svg
         viewBox="0 0 24 24"
         stroke="currentColor"

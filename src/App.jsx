@@ -16,7 +16,6 @@ function App() {
   const addTodo = (title) => {
     const newTodos = [...todos, { title, status: false, id: { randomId } }];
     setTodos(newTodos);
-    console.log(randomId);
   };
 
   const markTodo = (id) => {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function AddTodo({ addTodo }) {
   const [newTodo, setNewTodo] = useState("");
@@ -31,3 +32,7 @@ export default function AddTodo({ addTodo }) {
     </form>
   );
 }
+
+AddTodo.prototype = {
+  addTodo: PropTypes.func,
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function TodoList({ todo, index, removeTodo, markTodo }) {
   return (
@@ -6,7 +7,7 @@ export default function TodoList({ todo, index, removeTodo, markTodo }) {
       <div className="form-check">
         <label className="form-check-label li">
           <input
-            checked={todo.status}
+            defaultChecked={todo.status}
             className="checkbox"
             type="checkbox"
             onClick={() => markTodo(todo.id)}
@@ -23,3 +24,17 @@ export default function TodoList({ todo, index, removeTodo, markTodo }) {
     </li>
   );
 }
+TodoList.prototype = {
+  todo: PropTypes.arrayOf(
+    PropTypes.shape([
+      {
+        title: PropTypes.string.isRequired,
+        status: PropTypes.bool.isRequired,
+        id: PropTypes.object.isRequired,
+      },
+    ])
+  ),
+  index: PropTypes.number,
+  removeTodo: PropTypes.func,
+  markTodo: PropTypes.func,
+};

@@ -19,14 +19,14 @@ export default function TodoList({ id, todo, index, removeTodo, markTodo }) {
             // onChecked={todo.status ? true : false}
           />
           {todo.title}
-          <i className="input-helper"></i>
+          <i className="input-helper" />
         </label>
       </div>
 
       <i
         className=" remove mdi mdi-close-circle-outline"
         onClick={() => removeTodo(index)}
-      ></i>
+      />
     </li>
   );
 }

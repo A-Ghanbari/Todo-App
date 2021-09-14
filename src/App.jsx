@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
+import DarkLight from "./components/DarkLight";
 
 let i = 2;
 function App() {
@@ -41,6 +42,7 @@ function App() {
   };
   return (
     <div className="page-content page-container" id="page-content">
+      <DarkLight />
       <div className="padding">
         <div className="row container d-flex justify-content-center">
           <div className="col-md-10">

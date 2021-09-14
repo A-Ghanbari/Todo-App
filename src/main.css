@@ -1,8 +1,62 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css");
 
+:root {
+  --body-color: #b3b3b3;
+  --body-bg-color: #f2f2f2;
+  --card-title-color: #000;
+  --card-color: #fff;
+  --li-color: #000;
+  --li-line-color: #405189;
+  --check-color: #000;
+  --ckeck-bg-color: #405189;
+  --remove-color: #405189;
+  --btn-bg-color: #405189;
+  --btn-color: #ffffff;
+  --header-bg-color: #f2f2f2;
+
+  --gr-color: linear-gradient(
+    45deg,
+    #00ffff,
+    #070f7e,
+    #405189,
+    #0087b1,
+    #405189,
+    #00ffff,
+    #070f7e,
+    #405189,
+    #0087b1
+  );
+}
+.dark-mode {
+  --body-bg-color: #1e222b;
+  --card-color: rgb(49, 49, 49);
+  --card-title-color: #fff;
+  --header-bg-color: rgb(46, 46, 46);
+  --li-color: rgb(255, 255, 255);
+  --li-line-color: #00ff00;
+  --check-color: rgb(255, 255, 255);
+  --ckeck-bg-color: #00ff00;
+  --remove-color: #ff2525;
+  --btn-bg-color: #ffffff;
+  --btn-color: #000000;
+  --gr-color: linear-gradient(
+    45deg,
+    #00ffff,
+    #f000a0,
+    #ffff00,
+    #0df00f,
+    #ff00ff,
+    #fa1212,
+    #0f0582,
+    #ffff56,
+    #0ff00f
+  );
+}
+
 body {
-  background-color: #000000;
+  background-color: var(--body-bg-color);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .flex {
@@ -45,7 +99,7 @@ body {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: rgb(53, 53, 53);
+  background-color: var(--card-color);
   background-clip: border-box;
   border: 1px solid rgb(83, 83, 83);
   border-radius: 20px;
@@ -57,18 +111,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(
-    45deg,
-    #00ffff,
-    #f000a0,
-    #ffff00,
-    #0df00f,
-    #ff00ff,
-    #fa1212,
-    #0f0582,
-    #ffff56,
-    #0ff00f
-  );
+  background: var(--gr-color);
   width: 100%;
   height: 100%;
   /* transform: scale(1.02); */
@@ -77,7 +120,7 @@ body {
   animation: animation 30s linear infinite;
 }
 .card::after {
-  filter: blur(30px);
+  filter: blur(20px);
 }
 @keyframes animation {
   0% {
@@ -107,14 +150,14 @@ body {
 }
 
 .card .card-title {
-  color: #ffffff;
+  color: var(--card-title-color);
   margin-bottom: 0.625rem;
   text-transform: capitalize;
   font-size: 0.875rem;
   font-weight: 500;
 }
 h2 {
-  font-size: 20px !important;
+  font-size: 25px !important;
 }
 .add-items {
   margin-bottom: 1.5rem;
@@ -162,6 +205,8 @@ h2 {
   font-weight: 400;
   padding: 0.7rem 1.5rem;
   border-radius: 0.1275rem;
+  color: var(--btn-color);
+  background-color: var(--btn-bg-color);
 }
 
 .list-wrapper {
@@ -222,7 +267,7 @@ h2 {
   font-size: 30px;
   padding: 0.4rem 0;
   border-bottom: 1px solid #f3f3f3;
-  color: #fff;
+  color: var(--li-color);
 }
 
 .list-wrapper ul li:first-child {
@@ -255,7 +300,7 @@ h2 {
 
 .list-wrapper .completed {
   text-decoration: line-through;
-  text-decoration-color: #33ff00;
+  text-decoration-color: var(--li-line-color);
 }
 
 .list-wrapper ul li .form-check {
@@ -368,7 +413,7 @@ input[type="checkbox"] {
   width: 22px;
   height: 22px;
   border-radius: 2px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--check-bg-color);
   border-width: 2px;
   -webkit-transition: all;
   -moz-transition: all;
@@ -414,7 +459,7 @@ input[type="checkbox"] {
   .form-check-label
   input[type="checkbox"]:checked
   + .input-helper:before {
-  background: #26ff00;
+  background: var(--ckeck-bg-color);
   border-width: 0;
 }
 
@@ -423,7 +468,7 @@ input[type="checkbox"] {
   width: 18px;
   height: 18px;
   border-radius: 2px;
-  border: solid #ffffff;
+  border: solid var(--check-color);
   border-width: 2px;
   -webkit-transition: all;
   -moz-transition: all;
@@ -479,7 +524,7 @@ input[type="checkbox"] {
   padding-right: 3px;
   /* vertical-align: middle; */
   font-size: 1.1em;
-  color: #fd4545;
+  color: var(--remove-color);
 }
 
 .list-wrapper ul {
@@ -517,4 +562,28 @@ input[type="checkbox"] {
 }
 .li {
   font-size: 25px !important;
+}
+.dark-light {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background-color: var(--header-bg-color);
+  box-shadow: -1px 3px 8px -1px rgba(0, 0, 0, 0.2);
+  padding: 10px 10px 5px;
+  border-radius: 50%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.dark-light svg {
+  width: 28px;
+}
+.dark-mode .dark-light svg {
+  fill: #ffce45;
+  stroke: #222222;
+}
+.dark-light svg {
+  fill: #f2f2f2;
+  stroke: #707070;
+  transition: 1s;
 }

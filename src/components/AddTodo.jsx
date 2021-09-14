@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 
-export default function AddTodo({ addLi }) {
+export default function AddTodo({ addTodo }) {
   const [newTodo, setNewTodo] = useState("");
 
   return (
@@ -9,7 +8,6 @@ export default function AddTodo({ addLi }) {
       <div className="add-items d-flex">
         <input
           value={newTodo}
-          // name="firstName"
           onChange={(e) => {
             setNewTodo(e.target.value);
           }}
@@ -22,7 +20,7 @@ export default function AddTodo({ addLi }) {
           className="add btn font-weight-bold newTodo-list-add-btn"
           onClick={() => {
             if (newTodo) {
-              addLi(newTodo);
+              addTodo(newTodo);
               setNewTodo("");
             }
           }}

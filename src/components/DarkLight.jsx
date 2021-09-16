@@ -22,7 +22,6 @@ export default function DarkLight() {
       </div>
       <div className="wrapper">
         <span className="halloween-animation" />
-        <span className="hot_air_balloon" />
       </div>
     </div>
   );

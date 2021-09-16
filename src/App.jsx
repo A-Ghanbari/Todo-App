@@ -8,13 +8,16 @@ function App() {
     JSON.parse(localStorage.getItem("todos")) || []
   );
   useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  const randomId = () => "_" + Math.random().toString(36).substr(2, 9);
+  // const randomId = () => "_" + Math.random().toString(36).substr(2, 9);
 
   const addTodo = (title) => {
-    const newTodos = [...todos, { title, status: false, id: { randomId } }];
+    const newTodos = [
+      ...todos,
+      { title, status: false, id: Math.random() * 1258745632 },
+    ];
     setTodos(newTodos);
   };
 
@@ -23,15 +26,28 @@ function App() {
 
     newTodos.filter((value) => {
       if (value.id === id) {
-        value.status = !value.status;
+        return (value.status = !value.status);
       }
     });
     setTodos(newTodos);
   };
 
-  const removeTodo = (index) => {
+  const removeTodo = (id) => {
     const newTodos = [...todos];
-    newTodos.splice(index, 1);
+    const temp = newTodos.filter((value) => {
+      return value.id !== id;
+    });
+    setTodos(temp);
+  };
+
+  const editeTodo = (id) => {
+    const newTodos = [...todos];
+    newTodos.filter((value) => {
+      if (value.id === id) {
+        const title = prompt("Enter new Title", "");
+        value.title = title;
+      }
+    });
     setTodos(newTodos);
   };
 
@@ -50,10 +66,10 @@ function App() {
                     {todos.map((todo, index) => (
                       <TodoList
                         todo={todo}
-                        index={index}
-                        key={index}
+                        key={todo.id}
                         removeTodo={removeTodo}
                         markTodo={markTodo}
+                        editeTodo={editeTodo}
                       />
                     ))}
                   </ul>

@@ -1,25 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function TodoList({ todo, index, removeTodo, markTodo }) {
+export default function TodoList({ todo, removeTodo, markTodo, editeTodo }) {
   return (
     <li id={todo.id} className={todo.status ? "completed " : ""}>
       <div className="form-check">
-        <label className="form-check-label li">
+        <label id={todo.id} className="form-check-label li">
           <input
-            defaultChecked={todo.status}
+            checked={todo.status ? "checked" : null}
             className="checkbox"
             type="checkbox"
             onClick={() => markTodo(todo.id)}
           />
-          {todo.title}
           <i className="input-helper" />
+          {todo.title}
         </label>
       </div>
 
       <i
         className=" remove mdi mdi-close-circle-outline"
-        onClick={() => removeTodo(index)}
+        onClick={() => removeTodo(todo.id)}
+      />
+      <i
+        className="ed edite mdi-close-circle-outline"
+        onClick={() => editeTodo(todo.id)}
       />
     </li>
   );
@@ -30,11 +34,12 @@ TodoList.prototype = {
       {
         title: PropTypes.string.isRequired,
         status: PropTypes.bool.isRequired,
-        id: PropTypes.object.isRequired,
+        id: PropTypes.number.isRequired,
       },
     ])
   ),
-  index: PropTypes.number,
+
   removeTodo: PropTypes.func,
   markTodo: PropTypes.func,
+  editTodo: PropTypes.func,
 };

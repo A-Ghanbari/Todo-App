@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function TodoList({ todo, removeTodo, markTodo, editeTodo }) {
+export default function TodoList({ todo, removeTodo, markTodo, editTodo }) {
   return (
     <li id={todo.id} className={todo.status ? "completed " : ""}>
       <div className="form-check">
@@ -22,8 +22,8 @@ export default function TodoList({ todo, removeTodo, markTodo, editeTodo }) {
         onClick={() => removeTodo(todo.id)}
       />
       <i
-        className="ed edite mdi-close-circle-outline"
-        onClick={() => editeTodo(todo.id)}
+        className="ed edit mdi-close-circle-outline"
+        onClick={() => editTodo(todo.id)}
       />
     </li>
   );

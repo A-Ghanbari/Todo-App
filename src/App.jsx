@@ -3,7 +3,24 @@ import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
 import DarkLight from "./components/DarkLight";
 
+// function reducer(state, { type, payload }) {
+//   switch (type) {
+//     case "inc":
+//       return state + 1;
+//     case "min":
+//       return state - 1;
+//     case "set":
+//       return payload;
+//     case "res":
+//       return 0;
+//     default:
+//       return state;
+//   }
+// }
+
 function App() {
+  // const [state, dispatch] = useReducer(reducer, 0);
+
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
@@ -40,7 +57,7 @@ function App() {
     setTodos(temp);
   };
 
-  const editeTodo = (id) => {
+  const editTodo = (id) => {
     const newTodos = [...todos];
     newTodos.filter((value) => {
       if (value.id === id) {
@@ -69,7 +86,7 @@ function App() {
                         key={todo.id}
                         removeTodo={removeTodo}
                         markTodo={markTodo}
-                        editeTodo={editeTodo}
+                        editeTodo={editTodo}
                       />
                     ))}
                   </ul>
